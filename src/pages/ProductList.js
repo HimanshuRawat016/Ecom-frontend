@@ -6,16 +6,25 @@ import PriceFilterComponent from "../components/filterQueryResultOptions/PriceFi
 import RatingFilterComponent from "../components/filterQueryResultOptions/RatingFilterComponent";
 import CategoryFilterComponent from "../components/filterQueryResultOptions/CategoryFilterComponent";
 import AttributesFilterComponent from "../components/filterQueryResultOptions/AttributesFilterComponent";
+
 const ProductList = () => {
   return (
     <Container fluid>
       <Row>
         <Col md={3}>
           <ListGroup variant="flush">
-            <ListGroup.Item  className = "mb-3 mt-3" ><SortOptionsComponent /></ListGroup.Item>
-            <ListGroup.Item ><PriceFilterComponent /></ListGroup.Item>
-            <ListGroup.Item ><RatingFilterComponent /></ListGroup.Item>
-            <ListGroup.Item ><CategoryFilterComponent /></ListGroup.Item>
+            <ListGroup.Item className="mb-3 mt-3">
+              <SortOptionsComponent />
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <PriceFilterComponent />
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <RatingFilterComponent />
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <CategoryFilterComponent />
+            </ListGroup.Item>
             <ListGroup.Item>
               <AttributesFilterComponent />
             </ListGroup.Item>
@@ -26,13 +35,14 @@ const ProductList = () => {
           </ListGroup>
         </Col>
         <Col md={9}>
-          {Array.from({length:5}).map((_,idx)=>(
-            <ProductForListComponent  key={idx} 
-            images= {["games","monitors","tablets","games","monitors"]}
-            idx ={idx}
+          {Array.from({ length: 5 }).map((_, idx) => (
+            <ProductForListComponent
+              key={idx}
+              images={["games", "monitors", "tablets", "games", "monitors"]}
+              idx={idx}
             />
           ))}
-          
+
           <PaginationComponent />
         </Col>
       </Row>
@@ -41,4 +51,3 @@ const ProductList = () => {
 };
 
 export default ProductList;
-
